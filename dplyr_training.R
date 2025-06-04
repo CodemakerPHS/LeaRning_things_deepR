@@ -106,6 +106,6 @@ ons_mortality |>
         group_by(group = consecutive_id(speaker))|>
     distinct()
   
-  
+  consecutive_id(sample(c(4.4,8.8,6.03, 5.15), T, 9))
   
   
