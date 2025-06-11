@@ -34,6 +34,48 @@ SMR_SIMD <- read_csv("https://www.opendata.nhs.scot/datastore/dump/e6849f09-3a5c
                                   TRUE ~ SIMDQuintile)) |>
   relocate(last_col()) 
 
+#summarising all the  nums in the column
+SMR_SIMD |>
+  summarise(sum(NumberOfDeaths)) # returns  a tibble!
+
+# equive 
+sum(SMR_SIMD$NumberOfDeaths) # returns one val
+
+SMR_SIMD |>
+  group_by(Year)|>
+  summarise(sum(NumberOfPatients))
+# cos its tidyverse, don't need to quote the col nums, treats them as objex
+
+SMR_SIMD |>
+  group_by(SIMDQuintile)|> # or try year. 
+  summarise(sum(NumberOfDeaths)) # returns  a tibble!
+
+SMR_SIMD |>
+  group_by(Year, SIMDQuintile)|> # or try year. 
+  summarise(sum(NumberOfDeaths)) # removes only the rightmost level of grouping ie simdquintile,
+# this is a bad choice that brendan doesnt lke, but it'll never change. 
+
+# horrible 
+SMR_SIMD |>
+  group_by(Year, SIMDQuintile)|> # 
+  summarise(sumthing = sum(NumberOfDeaths),
+            meanthing = mean(NumberOfDeaths))|>
+  mutate(nu_col = "ha") |>
+  ungroup()
+
+
+# n() gives you number of rows
+SMR_SIMD |>
+  group_by(Year, SIMDQuintile)|> # 
+  summarise(sumthing = sum(NumberOfDeaths),
+            meanthing = mean(NumberOfDeaths),
+            n = n(),
+            first = first(Year),
+            last = last(Year))|>
+  ungroup()
+# n reveals i don't have four quarters in each year
+
+
 
 skimr::skim(SMR_SIMD)
 
@@ -56,11 +98,39 @@ SMR_SIMD |>
   summarise(sum(NumberOfDeaths)) |>
   summarise(sum(`sum(NumberOfDeaths)`)) # horrible default column names, which we'll fix in future
 
+?group_data
+
+SMR_SIMD |>
+  group_by(Year, SIMDQuintile)|>
+  group_data()
+# could use pull for this
+
+library(tidyr)
+
+SMR_SIMD |>
+  group_by(SIMDQuintile, Year) |>
+  group_data() |>
+  unnest(.rows) |>
+  filter(Year == 2018, SIMDQuintile == 3)
+
 
 SMR_SIMD |> 
   group_by(Year) |>
   summarise(total = sum(NumberOfDeaths)) |> # rename columns like select 
   arrange(desc(total)) 
+
+
+tempvarble <-  SMR_SIMD |>
+  +     summarise(sum = sum(NumberOfDeaths),
+                  +               mean = mean(NumberOfDeaths), 
+                  +               .by = c(Year, SIMDQuintile))
+
+
+
+SMR_SIMD |>
+  summarise(sum = sum(NumberOfDeaths),
+            mean = mean(NumberOfDeaths), 
+            .by = c(Year, SIMDQuintile))
 
 SMR_SIMD |> 
   group_by(Year) |>
@@ -83,6 +153,13 @@ SMR_SIMD |>
 
 ## reframe()
 
+ae_attendances |>
+  group_by(year = lubridate::floor_date(period, unit = "year")) |>
+  summarise(
+    year = lubridate::year(year),
+    non_admissions = sum(attendances - admissions)
+  )
+
 sum <- ae_attendances |>
   group_by(year = lubridate::floor_date(period, unit = "year")) |>
   summarise(
@@ -102,6 +179,9 @@ waldo::compare(sum, ref)
 
 
 ## count() and tally()
+
+ae_attendances |>
+  count()
 
 synthetic_news_data |>
   count(died) 
