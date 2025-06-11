@@ -181,7 +181,75 @@ waldo::compare(sum, ref)
 ## count() and tally()
 
 ae_attendances |>
-  count()
+  count() # num of rows
+
+# two ways to do same thing
+ae_attendances |>
+  count(org_code)
+
+ae_attendances |>
+  group_by(org_code)|>
+  summarise(n=n())
+
+ae_attendances |>
+  tally()
+
+# whereas on breaches will be different
+
+ae_attendances |>
+  tally(breaches)
+
+ae_attendances |>
+  count(breaches)
+
+sum(ae_attendances$breaches)
+
+# good idea to use  a named arugument so is clear ur using tally to get weighted tots. 
+?count
+# tally is niche, logic is funny, might never need it, but can be useful certain circs. 
+
+# DROP  .drop
+# only relevant where you're using factors
+ae_attendances |>
+  count(org_code,
+        wt = breaches,
+        sort = T, 
+        name = "steve",
+        .drop = F
+        )
+
+# factorising the male level
+synthetic_news_data |>
+  mutate(male = factor(male, levels = c(0,1,2))) |>
+  count(male, .drop = F)
+# this allows you to show there is a missing group. 
+
+ae_attendances |>
+  add_count(org_code) |>
+  filter( ?...? ) # he deleted it
+
+# gotcha - this is summing evthing in whole tibble, so bonkers big nums
+ae_attendances |>
+  mutate(total = sum(attendances, breaches, admissions))
+
+# .. cos mutate respects groupings
+# so we use rowwise to group by row 
+# surprisingly note the defaault 
+ae_attendances |>
+  rowwise() |>
+  mutate(total = sum(attendances, breaches, admissions))
+
+# so mutate can be thrown off by using a grouping that was many lines before
+# by defautl if you group by, it scrubs any preceding group by
+# but you can add a layer of grouping by using .add 
+
+ae_attendances |>
+  group_by(org_code) |>
+  group_by(type, .add = T)|>
+  mutate(total = sum(attendances, breaches, admissions))
+
+ae_attendances |>
+  rowwise()
 
 synthetic_news_data |>
   count(died) 
