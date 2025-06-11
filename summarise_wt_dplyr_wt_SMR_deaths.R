@@ -6,6 +6,9 @@
 # Follow-along
 # https://nes-dew.github.io/KIND-training/r_training/dplyr_group_summarise.html 
 # 
+# KIND learning network training materials by 
+# KIND learning network is licensed under CC BY-SA 4.0
+# 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 library(dplyr)
@@ -147,3 +150,25 @@ synthetic_news_data |>
 ae_attendances |> 
   rowwise() |>
   mutate(mean = mean(c(attendances, breaches, admissions))) 
+
+ae_attendances |> 
+  mutate(mean=mean(c(attendances, breaches, admissions))) 
+
+
+ae_attendances |> 
+  rowwise() |>
+  mutate(mean = mean(c_across(4:6))) 
+
+
+
+## Summary functions nth() first() last()
+
+tibble(speaker = c("steve", "steve", "emma", "steve", "emma", "emma"),
+       comment = letters[1:6])  |>
+  mutate(group = consecutive_id(speaker)) |>
+  group_by(group, speaker) |>
+  summarise(comment = last(comment)) |>
+  ungroup() |>
+  select(-group)
+
+
