@@ -54,3 +54,96 @@ SMR_SIMD |>
   summarise(sum(`sum(NumberOfDeaths)`)) # horrible default column names, which we'll fix in future
 
 
+SMR_SIMD |> 
+  group_by(Year) |>
+  summarise(total = sum(NumberOfDeaths)) |> # rename columns like select 
+  arrange(desc(total)) 
+
+SMR_SIMD |> 
+  group_by(Year) |>
+  summarise(surviving = sum(NumberOfPatients - NumberOfDeaths )) |>
+  arrange(desc(surviving))  
+
+SMR_SIMD |> 
+  summarise(surviving = sum(NumberOfPatients - NumberOfDeaths), 
+            .by = Year) |>
+  arrange(desc(surviving)) 
+
+SMR_SIMD |> 
+  summarise(att = sum(NumberOfDeaths), .by = c(Year, Quarter)) 
+
+
+SMR_SIMD |> 
+  group_by(Year, Quarter) |>
+  summarise(att = sum(NumberOfDeaths))
+
+
+## reframe()
+
+sum <- ae_attendances |>
+  group_by(year = lubridate::floor_date(period, unit = "year")) |>
+  summarise(
+    year = lubridate::year(year),
+    non_admissions = sum(attendances - admissions)
+  )
+
+ref <- ae_attendances |>
+  group_by(year = lubridate::floor_date(period, unit = "year")) |>
+  reframe(
+    year = lubridate::year(year),
+    non_admissions = sum(attendances - admissions)
+  )
+
+waldo::compare(sum, ref)
+
+
+
+## count() and tally()
+
+synthetic_news_data |>
+  count(died) 
+
+
+synthetic_news_data |> 
+  group_by(died) |> 
+  summarise(n = n())  
+
+
+synthetic_news_data |> 
+  # group_by(died) |> 
+  summarise(n = n())  
+
+
+synthetic_news_data |>
+  tally() 
+
+
+synthetic_news_data |>
+  tally(age) 
+
+
+synthetic_news_data |>
+  pull(age) |>
+  sum() 
+
+synthetic_news_data |>
+  count(syst, sort=T) 
+
+#add_ variants
+synthetic_news_data |>
+  add_count(syst, name="syst_BP_count") |>
+  select(syst, last_col())
+
+
+synthetic_news_data |>
+  group_by(died) |>
+  add_tally() |>
+  slice(1:3) 
+
+
+## rowwise() 
+
+# to find the daily mean of attendances, breaches, and admissions
+ae_attendances |> 
+  rowwise() |>
+  mutate(mean = mean(c(attendances, breaches, admissions))) 
