@@ -12,8 +12,7 @@
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 library(dplyr)
-# horr-RENV-ous
-# had to remove then re-init
+# had to remove renv then re-init
 # renv::deactivate(clean = TRUE) 
 # renv::init()
 library(readr)
@@ -22,6 +21,9 @@ library(ggplot2)
 library(NHSRdatasets)
 library(skimr)
 
+
+# for comparison 
+# raw_SMR_SIMD <- read_csv("https://www.opendata.nhs.scot/datastore/dump/e6849f09-3a5c-44c6-8029-260882345071?bom=True") 
 
 SMR_SIMD <- read_csv("https://www.opendata.nhs.scot/datastore/dump/e6849f09-3a5c-44c6-8029-260882345071?bom=True") |>
   select(-c(`_id`, contains("QF"), Country)) |>
