@@ -62,7 +62,7 @@ SMR_SIMD |>
   group_by(Year, SIMDQuintile)|> # 
   summarise(sumthing = sum(NumberOfDeaths),
             meanthing = mean(NumberOfDeaths))|>
-  mutate(nu_col = "ha") |>
+  mutate(nu_col = "just a plain old string") |>
   ungroup()
 
 
