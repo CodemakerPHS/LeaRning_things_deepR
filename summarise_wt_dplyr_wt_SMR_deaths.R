@@ -28,6 +28,16 @@ library(skimr)
 # Dataset description
 # https://www.opendata.nhs.scot/dataset/hospital-standardised-mortality-ratios/resource/e6849f09-3a5c-44c6-8029-260882345071
 
+# Statistical Qualifier lookup
+# https://www.opendata.nhs.scot/dataset/statistical-qualifiers/resource/b80f9af0-b115-4245-b591-fb22775226c4 
+
+# Alternative datasets to use
+# Cancer mortality in Scotland 2014-2018, broken link to 2019 publication
+# https://www.opendata.nhs.scot/dataset/cancer-mortality/resource/828106bf-288c-48ce-b20f-35040cafee5d
+
+# Cervical screening uptake 
+# https://www.opendata.nhs.scot/dataset/scottish-cervical-screening-programme-statistics/resource/7191190e-2ebd-47e4-bbca-a1eb3182408a
+
 
 SMR_SIMD <- read_csv("https://www.opendata.nhs.scot/datastore/dump/e6849f09-3a5c-44c6-8029-260882345071?bom=True") |>
   select(-c(`_id`, contains("QF"), Country)) |>
