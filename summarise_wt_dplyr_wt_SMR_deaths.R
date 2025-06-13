@@ -25,6 +25,10 @@ library(skimr)
 # for comparison 
 # raw_SMR_SIMD <- read_csv("https://www.opendata.nhs.scot/datastore/dump/e6849f09-3a5c-44c6-8029-260882345071?bom=True") 
 
+# Dataset description
+# https://www.opendata.nhs.scot/dataset/hospital-standardised-mortality-ratios/resource/e6849f09-3a5c-44c6-8029-260882345071
+
+
 SMR_SIMD <- read_csv("https://www.opendata.nhs.scot/datastore/dump/e6849f09-3a5c-44c6-8029-260882345071?bom=True") |>
   select(-c(`_id`, contains("QF"), Country)) |>
   tidyr::separate_wider_delim(TimePeriod, "Q", names = c("Year", "Quarter")) |>
