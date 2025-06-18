@@ -178,3 +178,15 @@ x |>
 # Is more computtnly efficient than if you did it the long way. 
 
 # dplyr now has loads of helper functions for this
+sales <- tibble(
+  id = c(1L, 1L, 1L, 2L, 2L),
+  sale_date = as.Date(c("2018-12-31", "2019-01-02", "2019-01-05", "2019-01-04", "2019-01-01"))
+)
+
+promos <- tibble(
+  id = c(1L, 1L, 2L),
+  promo_date = as.Date(c("2019-01-01", "2019-01-05", "2019-01-02"))
+)
+
+inner_join(sales, promos, join_by(id, closest(sale_date >= promo_date)))
+# maybe use it for age ie greater than / less than
