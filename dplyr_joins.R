@@ -94,4 +94,48 @@ x |>
 # contrast to the classic way is by doing a vector 
 # is using a c()
 
+# 
+x |>
+  inner_join(y, by = join_by(key == key))
 
+x |>
+  full_join(y, by = join_by(key == key))
+
+x |>
+  full_join(y)
+
+# NB if try to put a condition into cross join it wont' do it, you'll get an error. 
+
+x |>
+  right_join(y, by = join_by(key == key))
+
+x |>
+  left_join(y, by = join_by(key == key))
+
+x |>
+  left_join(y, by = join_by(key > key))
+
+# Anti-join (this is filtering, not mutating) ----
+x |>
+  anti_join(y, by = join_by(key == key))
+
+x |>
+  semi_join(y, by = join_by(key == key)) 
+
+# helpers ----
+
+x |>
+  inner_join(y, by = join_by(key == key))
+
+# equiv to above, more terse
+x |>
+  inner_join(y, by = join_by(key))
+
+# keep , so you can keep both the x and y cols if you want
+x |>
+  inner_join(y, by = join_by(key == key),
+             keep = T)
+
+# You can specify what to do with NAs
+# by default do NAs match NAs?
+# Think this is different to sql?!
