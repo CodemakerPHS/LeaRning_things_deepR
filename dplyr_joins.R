@@ -137,5 +137,44 @@ x |>
              keep = T)
 
 # You can specify what to do with NAs
-# by default do NAs match NAs?
+# by default do NAs match NAs? Yes argh!!!!!!!!!
 # Think this is different to sql?!
+# Not great to match on missing data, so specifying can be important to do. 
+x |>
+  inner_join(y, by = join_by(key == key),
+             na_matches = "never")
+
+# multiple so you can specify what to do with ties
+# multiple = first or last, or the default all
+x |>
+  inner_join(y, by = join_by(key == key),
+             multiple = "first")
+# helpful for being super specific about how handled
+
+
+# unmatched = "drop"
+x |>
+  inner_join(y, by = join_by(key == key),
+             unmatched = "drop",
+             relationship = "one-to-many")
+
+# nest join another helper
+x |>
+  nest_join(y, by = join_by(key))
+
+# nest join another helper
+x |>
+  nest_join(y, by = join_by(key)) |>
+  tidyr::unnest(y, names_sep = "_")
+
+# Non-equi joins ----
+# imagine the key is a date, rather than CHI, for this,
+# you might join on a date
+x |>
+  inner_join(y, by = join_by(key,
+                             value >= value))
+# here would be one way of doing this
+# Equates eg to find someone whose cholesterol value has dropped  as well as ...
+# Is more computtnly efficient than if you did it the long way. 
+
+# dplyr now has loads of helper functions for this
