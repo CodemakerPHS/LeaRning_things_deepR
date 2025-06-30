@@ -232,9 +232,9 @@ ae_attendances |>
 ae_attendances |>
   mutate(total = sum(attendances, breaches, admissions))
 
-# .. cos mutate respects groupings
+# .. cos mutate respects groupings,
 # so we use rowwise to group by row 
-# surprisingly note the defaault 
+# surprisingly not the defaault 
 ae_attendances |>
   rowwise() |>
   mutate(total = sum(attendances, breaches, admissions))
@@ -309,7 +309,7 @@ ae_attendances |>
 
 
 
-## Summary functions nth() first() last()
+## Summary functions nth(),  first() and last()
 
 tibble(speaker = c("steve", "steve", "emma", "steve", "emma", "emma"),
        comment = letters[1:6])  |>
