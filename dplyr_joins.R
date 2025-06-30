@@ -25,7 +25,7 @@ y <- tibble::tribble(
   "y",2,14
 )
 
-# Binding ----
+## Binding ----
 
 x |>
   bind_rows(y)|>
@@ -51,7 +51,7 @@ x |>
   select(-funny_thing)
 # produces no NAs
 
-# bind by list
+### bind by list
 bind_rows(list(x, y))
 
 # .id gives things an id based on the order they're bind
@@ -122,7 +122,7 @@ x |>
 x |>
   semi_join(y, by = join_by(key == key)) 
 
-# helpers ----
+## helpers ----
 
 x |>
   inner_join(y, by = join_by(key == key))
