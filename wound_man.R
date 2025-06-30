@@ -1,8 +1,5 @@
 # base R ----
 
-
-
-
 # doing a bit of complicated arithmetic
 3 * (2 + 2 + (8 - (1+(4.2 - 1.3)^3.4) + 1)
      
