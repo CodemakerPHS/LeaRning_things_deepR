@@ -12,8 +12,7 @@
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 library(dplyr)
-# horr-RENV-ous
-# had to remove then re-init
+# had to remove renv then re-init
 # renv::deactivate(clean = TRUE) 
 # renv::init()
 library(readr)
@@ -21,6 +20,37 @@ library(lubridate)
 library(ggplot2)
 library(NHSRdatasets)
 library(skimr)
+library(phsopendata)
+
+
+# for comparison 
+# raw_SMR_SIMD <- read_csv("https://www.opendata.nhs.scot/datastore/dump/e6849f09-3a5c-44c6-8029-260882345071?bom=True") 
+
+# Dataset description
+# https://www.opendata.nhs.scot/dataset/hospital-standardised-mortality-ratios/resource/e6849f09-3a5c-44c6-8029-260882345071
+
+# Statistical Qualifier lookup
+# tldr: variable_QF is a column for a statistical qualifier
+# most often the qualifier value is 'd' signifying a derived value, usually a subtotal of other rows.
+# https://www.opendata.nhs.scot/dataset/statistical-qualifiers/resource/b80f9af0-b115-4245-b591-fb22775226c4 
+qualifier_info_resrc_id <- "b80f9af0-b115-4245-b591-fb22775226c4"
+qualifier_info <- get_resource(qualifier_info_resrc_id)
+qualifier_info |>
+  filter(Qualifier == 'd') 
+qualifier_info |>
+  filter(Qualifier == 'd') |>
+  pull(QualifierDefinition)
+
+# Alternative datasets to use
+# Cancer mortality in Scotland 2014-2018, broken link to 2019 publication
+# https://www.opendata.nhs.scot/dataset/cancer-mortality/resource/828106bf-288c-48ce-b20f-35040cafee5d
+mortality_resrc_id <- "828106bf-288c-48ce-b20f-35040cafee5d"
+mortality_data <- get_resource(mortality_resrc_id)
+
+# Cervical screening uptake 
+# https://www.opendata.nhs.scot/dataset/scottish-cervical-screening-programme-statistics/resource/7191190e-2ebd-47e4-bbca-a1eb3182408a
+screeng_resrc_id <- "7191190e-2ebd-47e4-bbca-a1eb3182408a"
+sreeng_data <- get_resource(screeng_resrc_id)
 
 
 SMR_SIMD <- read_csv("https://www.opendata.nhs.scot/datastore/dump/e6849f09-3a5c-44c6-8029-260882345071?bom=True") |>
@@ -60,7 +90,7 @@ SMR_SIMD |>
   group_by(Year, SIMDQuintile)|> # 
   summarise(sumthing = sum(NumberOfDeaths),
             meanthing = mean(NumberOfDeaths))|>
-  mutate(nu_col = "ha") |>
+  mutate(nu_col = "just a plain old string") |>
   ungroup()
 
 
