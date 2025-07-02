@@ -115,3 +115,74 @@ tidyr::billboard
   tidyr::billboard |> 
     dplyr::select(num_range("wk", 10:5))
   
+  # MATCHES ----
+  
+  stran |>
+    select(matches("CARe"))
+
+  waldo::compare  (
+  stran |>
+    select(matches("CARe")) ,
+  stran |>
+    select(contains(c("care", "."))
+  
+    
+  # IN MATCHES, THE FULL STOP IS A WILDCARD
+  # matches lets you use regext o find columnsn
+  
+  # probly not worth using grep
+  grep("s", c("string", "ning"))
+  
+  # but idiomatically is annoyng while tidyverse nicer. 
+  
+  # Do use regex101.com but be aware 
+  # ANY STUFF THAT HAS A BACKLSASH, FOR R YOU NEED A DOUBLE BACKSLASH. to escape. 
+  
+  # where ----
+  # where takes a function name 
+  # and returns all the cols where that funcn returns true
+  stran |>
+    select(where(is.numeric))
+  
+  # not working
+#  stran |>
+ #   which(is.numeric)
+  
+  
+  my_col_names <- c("one_nice_col", "age", "hcop", "fourth")
+  
+  stran |>
+    select(all_of(my_col_names))
+  
+  stran |>
+    select(any_of(my_col_names))
+  
+  # probably use for dropying any of patsname patfname
+  
+  
+  # use everything() with pivot_longer() to make sure you've got everything
+  
+  select(everything()) # pointless
+  
+  
+  # any of v useful for dropping cols, only if they are there, v safe way to do it.
+  stran |>
+    select(-age) |>
+    select(-any_of("fourth", "admit_date"))
+  
+  # https://nes-dew.github.io/KIND-training/r_training/tidyselect.html#if_any-if_all-across-and-pick
+  
+  # For the following need to expand these, go back to the materials. 
+  
+  # broken
+    stran |>
+      filter(if_any(contains("care", ~ .x == 1)))
+    
+    # across
+    stran |>
+      mutate(across(where(is.character), toupper))
+    
+    # pick lets you do a select but return a tibble you can pass into another function
+    # multiselect, so is a bit like doing a distinct first then 
+    stran |> 
+      
