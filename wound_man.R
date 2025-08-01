@@ -84,6 +84,8 @@
      }
      # trying to find if names contains "Steve" and/or "Emma"
      if(names == c("Emma", "Steve")) "It's the usual suspects"
+     # trying to find if names contains "Steve" and/or "Emma"
+     if(any(boring_names %in% c("Emma", "Steve"))) "It's the usual suspects" # f19 the %in% operator is the right way to do this 
      
      # repeat the names object my_n times
      rep(names, my_n)
