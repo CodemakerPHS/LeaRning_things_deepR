@@ -1,26 +1,47 @@
 # base R ----
+# Do mouseover the red circles in the margin for *not* a preview 
+# but extra debugging detail complementary to the error messages
 
 # doing a bit of complicated arithmetic
+# broken
 3 * (2 + 2 + (8 - (1+(4.2 - 1.3)^3.4) + 1)
-     
+
+     # try
+     3 * (2 + 2 + (8 - (1+((4.2 - 1.3)^3.4)) + 1))
+          
+          
      # add up 1 to 3
      SUM(1,2,3)
+     SUM(c(1,2,3))
+     sum(1,22,33)
      
      # averaging 1 to 4
      mean(1::4)
+     mean(1:4)
      
      # creating and show a variable containing the number 3
      my_n < - 3
+     my_n <- 8
      my_N 
      
      # making a sequence from 1 to my_n-1
-     1:my_n-1
+     1:my_n-1 # Starts at zero argh!
+     # should hv brackets
+     # The below is clear whereas the above deducts 1 from both the start and end of the range. 
+     1:(my_n - 1)
+     
      names <- c(names, NA)
      
      # making a vector of numbers, and adding two to the first two items
      my_ vec <- c(2, 3, "two")
-     my_vec <- my_vec[1:2]
-     my_vec + 2 
+     my_vectr <- c(2, 3, "two") # Look out, this creates chr vector! 
+     my_vectr <- my_vectr[1:2]
+     my_vectr <- as.numeric(my_vectr[1:2])
+     my_vectr + 20 
+     # should be
+     good_vec <- c(8L,33L, 2L)
+     good_vec <- good_vec[1:2]
+     good_vec <- c(good_vec, 200L)
      
      # multiplying two vectors together
      my_vec <- as_numeric(my_vec)
