@@ -44,23 +44,44 @@
      good_vec <- c(good_vec, 200L)
      
      # multiplying two vectors together
-     my_vec <- as_numeric(my_vec)
+     my_vec <- as_numeric(my_vectr)
      My_vec2 <- c(2,5,4,)
      my_vec * my_vec2
      
      # checking that an item in a sequence equals a particular value
      .2 == .2
      seq(0, 1, by=0.1)[2] 
+     # See above - unlike other langs, vectors in R start at 1 not 0. 
+     # So to compare 0.2 to 0.2, see below - gives TRUE where expected in fact.
      seq(0, 1, by=0.1)[2] == 0.2
+     wee_seq <- seq(0, 1.9, by = 0.1) 
+     wee_seq
+     wee_seq[3]
+     wee_seq[3] == 0.2
+     seq(0, 1, by=0.1)[3] == 0.2
      
      rm(my_n)
      
      # creating a vector of three names
-     names <- C("Steve", "Emma, Bob")
-     
+     boring_names <- C("Steve", "Emma, Bob")
+     # Watch out, only two elements!
+     boring_names <- c("Steve", "Emma, Bob")
      # trying to find if names contains "Steve"
-     if(names == "Steve") "Steve's here!" 
-     
+     if(boring_names == "Steve") "Steve's here!" 
+     if("Stern" %in% boring_names) "contains is nice."
+     if("Ste" %in% boring_names) {
+             "contains is nice."
+     }
+     if("*Bob*" %in% boring_names) {
+             print("%in% is useful and nice.")
+     }
+     if("Steve" %in% boring_names) {
+             print("%in% is useful and nice.")
+     }
+     # Instead of %in%, use "any"
+     if( any (boring_names == "Steve")){
+         "Also, any can be quite handy too."    
+     }
      # trying to find if names contains "Steve" and/or "Emma"
      if(names == c("Emma", "Steve")) "It's the usual suspects"
      
