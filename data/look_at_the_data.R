@@ -1,7 +1,10 @@
 # Just looking at datasets
 
+fafafa <- "fafafa"
+
 # datasets::esoph, 88 obs of 5 varbls
 oesophageal_baser_eg <- datasets::esoph
+
 
 # datasets::fdeaths
 # Not cancer
