@@ -52,8 +52,10 @@
      .2 == .2
      round(1740/600,0) - 2.8
      seq(0, 1, by=0.1)[2] 
-     # See above - unlike other langs, vectors in R start at 1 not 0. 
-     # So to compare 0.2 to 0.2, see below - gives TRUE where expected in fact.
+     seq(0, 1, by=0.1)[2] == round(1740/600,0) - 2.8
+     
+     # Pauline's code - See above - unlike other langs, vectors in R start at 1 not 0. 
+     # So to compare 0.2 to 0.2, & not fall foul of floating point arithmetic, see below.
      seq(0, 1, by=0.1)[2] == 0.2
      wee_seq <- seq(0, 1.9, by = 0.1) 
      wee_seq
