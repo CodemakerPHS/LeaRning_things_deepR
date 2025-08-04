@@ -1,10 +1,7 @@
 # Just looking at datasets
 
-fafafa <- "fafafa"
-
 # datasets::esoph, 88 obs of 5 varbls
 oesophageal_baser_eg <- datasets::esoph
-
 
 # datasets::fdeaths
 # Not cancer
@@ -38,3 +35,11 @@ library(NHSRdatasets)
 # 
 # The downloaded source packages are in
 # ‘/tmp/Rtmp5f82Ie/downloaded_packages’
+
+# opendata.nhs.scot cancer incidence API query by SQL statement
+https://www.opendata.nhs.scot/api/3/action/datastore_search_sql?sql=SELECT * from "72c852b8-ee28-4fd8-84a9-5f415f4bc325" WHERE title LIKE 'jones' 
+
+# opendata cancer mortality API
+# results containing 'jones'
+https://www.opendata.nhs.scot/api/3/action/datastore_search?q=jones&resource_id=ba8d7049-ec05-4291-9333-57ca49ce7697 
+S
