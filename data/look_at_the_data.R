@@ -7,10 +7,10 @@ oesophageal_baser_eg <- datasets::esoph
 # Not cancer
 # Bronchitis, emphysema and asthma
 # [Monthly!] Time-Series [1:72] from 1974 to 1980: 901 689 827 677 522 
-# six yrs * 12 mths appearsto hold 72 values
+# six yrs * 12 mths appears to hold 72 values
 UK_deaths_lung_female <- datasets::fdeaths
 
-# See also potentially interesting
+# See also potentially interesting: 
 # HairEyeColor
 # Harman
 # indometh
