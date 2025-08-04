@@ -5,7 +5,7 @@
 #
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-library(phsopendata)
+library(phsopendata) # not available for R 4.5 as of 4 Aug 2025 cannot use on VS code. 
 library(phslookups)
 library(tidyverse)
 
