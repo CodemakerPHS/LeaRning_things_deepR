@@ -93,5 +93,35 @@ tidy_dynamic_mask_fun(age)
 # and so sometimes just popping in the colon is a good way to see if you can fix a problem. 
 # double curly brackets can be a bit like glue
 # to, in this case, rename in place and select
+# Whereas paste0 won't work. 
+
+# Loops just to see, just in case
+for(i in 1:10){
+  stranded_data |>
+    select(any_of(i)) |>
+    print()
+}
+# So you can use select to look at cols by number
+# but is risky cos so easy to make mistakes, 
+# if the number / order of cols changes. 
+
+# https://nes-dew.github.io/KIND-training/r_training/data_masking.html
+# Data masking in R – KIND training pages
+
+# https://nes-dew.github.io/KIND-training/r_training/src/te_cheat_sheet.pdf
+
+# Question from learner, as.symbol... 
+as.symbol("age")
+
+age # object age not found
+
+
+stranded_data |>
+  select(as.symbol("age"))
+
+stranded_data |>
+  select(!!"age")
+
+
 
 
