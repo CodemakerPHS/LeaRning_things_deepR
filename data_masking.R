@@ -9,3 +9,14 @@
 
 
 
+library(NHSRdatasets)
+library(dplyr)
+library(purrr)
+
+stranded_data["age"] |>
+  head(7)
+
+stranded_data |>
+  select(age) |>
+  head(7)
+
