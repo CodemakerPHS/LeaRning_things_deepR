@@ -32,7 +32,7 @@ mtcars[["mpg"]]
 # In tidyverse the idiom would be pull(). 
 # And dollar sign is equivalent to that. 
 
-# Subset by index"
+# Subset by index
 mtcars[1,]  # it's row 1
 mtcars[,1]  # column 1
 # think about 
@@ -60,11 +60,19 @@ mtc
 # dt[i,j,by]
 mtc[1] # still works, but NOW first ROW
 mtc[,1] #  FIRST COLUMN
-# So looks similar, but has transposed rows and columns argh!!!!!!!!!!!!!!
+# So looks similar. 
 
 # And chaining still works
 mtc[,3][1]
 # try by name
 mtc["mpg"] # ERROR!
 mtc[,"mpg"] # this is it
+
+# You can put in unquoted col names as if objects, by wrapping em in a list. 
+# or special data table shorthand full stop bracket
+
+mtc[, c("mpg", "hp")] # ok
+mtc[, list(mpg, hp)] # ok
+mtc[, .(mpg, hp)] # also works, but not v readable
+
 
