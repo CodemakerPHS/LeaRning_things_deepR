@@ -75,4 +75,57 @@ mtc[, c("mpg", "hp")] # ok
 mtc[, list(mpg, hp)] # ok
 mtc[, .(mpg, hp)] # also works, but not v readable
 
+# filter
+mtc[mpg > 30 & hp < 100]
+mtc[mpg > 30 | hp < 100] 
+mtc[mpg > 30][hp < 100][,.(cyl)] # do a filter, do another filter, then just get the cyl col
+mtc[mpg > 30][hp < 100][,"cyl"] # equivalent
+mtc[mpg > 30][hp < 100,.(cyl)] # equivalent
+# Can be v concise. 
+
+# If you give it an unquoted column name, data.table will turn it into a vector. 
+mtc[,hp]
+
+# Joy example
+mtc[mpg >30][,cyl]
+mtc[mpg>30][,.(cyl)] 
+
+# It handles non-numeric data OK too . 
+
+# .( is always the shorthand for a list
+# .N is equive to count the rows in each group 
+
+# a calculation ----
+# rename it as well, just within, cos it throws away the col name
+# So this is how to change cols, equiv to mutate
+mtc[, .(thing = hp * cyl)]
+mtc[, .(pw_col = hp * 2, wt, drat)]
+
+mtc[, .(new_hp = hp * 2, wt, drat, hp)] # this works
+
+# .N using dot N ----
+# is simple to group
+mtc[, .(count_duckula = .N), by = cyl]
+mtc[, .(count_duckula = .N), by = cyl][order(cyl)]
+
+# add a summing calcn
+
+mtc[, .(some_horse = sum(hp)), by = cyl][order(cyl)]
+
+mtc[, .(mean_horse = mean(hp)), by = cyl][order(cyl)]
+
+# Have a look at dtplyr
+# https://dtplyr.tidyverse.org/ 
+# it is for data.table. 
+
+# Not mtc[,hp] > head(20)
+# do mtc[,hp] |> head(20)
+
+# Now use fread (like 'freed' to rhyme with heed]
+# https://github.com/arunsrinivasan/flights/wiki/NYCflights14/flights14.csv 
+
+flights_link <- "https://github.com/arunsrinivasan/flights/wiki/NYCflights14/flights14.csv"
+pwflights <- fread(flights_link)
+pwflights |>
+  class()
 
