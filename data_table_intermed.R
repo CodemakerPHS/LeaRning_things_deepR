@@ -58,9 +58,13 @@ class(mtc)
 mtc
 # mtc[row, col/calculate, group] # this is roughly how the syntax works
 # dt[i,j,by]
-mtc[,1] # still works, but NOW FIRST ROW
-mtc[1] # first column
+mtc[1] # still works, but NOW first ROW
+mtc[,1] #  FIRST COLUMN
 # So looks similar, but has transposed rows and columns argh!!!!!!!!!!!!!!
 
-
+# And chaining still works
+mtc[,3][1]
+# try by name
+mtc["mpg"] # ERROR!
+mtc[,"mpg"] # this is it
 
