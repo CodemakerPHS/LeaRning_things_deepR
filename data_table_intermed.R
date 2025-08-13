@@ -32,3 +32,16 @@ mtcars[["mpg"]]
 # In tidyverse the idiom would be pull(). 
 # And dollar sign is equivalent to that. 
 
+# Subset by index"
+mtcars[1,]  # it's row 1
+mtcars[,1]  # column 1
+# think about 
+mtcars[1,1] # one cell in the table so-to-speak
+
+mtcars[3,8][1] # get back a data frame, by chaining the single brackets together. 
+mtcars[3,8][2] # error
+
+# in_dat <- here("data") # not working
+
+# We' l  make mtcars into a data.table
+data.table(mtcars)
