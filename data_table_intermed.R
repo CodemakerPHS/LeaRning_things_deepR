@@ -18,7 +18,7 @@ local_path <- "r_training/data/flights14.csv"
 local_path <- "/conf/quality_indicators/Benchmarking/Cancer_QPIs/Data/pauline_code/leaRRRning_things/data/flights14.csv"
 
 
-
+# setup ----
 mtcars
 
 mtcars$mpg
@@ -43,5 +43,24 @@ mtcars[3,8][2] # error
 
 # in_dat <- here("data") # not working
 
-# We' l  make mtcars into a data.table
+# We' l  make mtcars data frame into a data.table
 data.table(mtcars)
+# it can also take a tibble, but no need to convert mtcars df to a tibble :-)
+
+mtc <- mtcars
+class(mtc) # data.frame , still
+setDT(mtc)
+class(mtc)
+# So, unusually for R, it is changing in place, modifying in place. 
+# That is an efficincy - avoid duplicating the thing, by just modif in place. 
+
+# subsetting ----
+mtc
+# mtc[row, col/calculate, group] # this is roughly how the syntax works
+# dt[i,j,by]
+mtc[,1] # still works, but NOW FIRST ROW
+mtc[1] # first column
+# So looks similar, but has transposed rows and columns argh!!!!!!!!!!!!!!
+
+
+
