@@ -44,3 +44,9 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# data folder
+/data
+# Do not ignore open_data folder. 
+
+
