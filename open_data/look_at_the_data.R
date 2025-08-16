@@ -20,21 +20,6 @@ UK_deaths_lung_female <- datasets::fdeaths
 # v 0.3.0 of NHSRdatasets
 library(NHSRdatasets) 
 # > install.packages("NHSRdatasets")
-# Installing package into ‘/mnt/homes/pauliw07/R/x86_64-pc-linux-gnu-library/4.4’
-# (as ‘lib’ is unspecified)
-# Warning in install.packages :
-#   unable to access index for repository https://ppm-prod.publichealthscotland.org/phs-github/__linux__/jammy/latest/src/contrib:
-#   cannot open URL 'https://ppm-prod.publichealthscotland.org/phs-github/__linux__/jammy/latest/src/contrib/PACKAGES'
-# trying URL 'https://ppm-prod.publichealthscotland.org/cran/__linux__/jammy/latest/src/contrib/NHSRdatasets_0.3.0.tar.gz'
-# Content type 'application/x-gzip' length 296116 bytes (289 KB)
-# ==================================================
-#   downloaded 289 KB
-# 
-# * installing *binary* package ‘NHSRdatasets’ ...
-# * DONE (NHSRdatasets)
-# 
-# The downloaded source packages are in
-# ‘/tmp/Rtmp5f82Ie/downloaded_packages’
 
 # opendata.nhs.scot cancer incidence API query by SQL statement
 https://www.opendata.nhs.scot/api/3/action/datastore_search_sql?sql=SELECT * from "72c852b8-ee28-4fd8-84a9-5f415f4bc325" WHERE title LIKE 'jones' 
@@ -44,4 +29,8 @@ https://www.opendata.nhs.scot/api/3/action/datastore_search_sql?sql=SELECT * fro
 https://www.opendata.nhs.scot/api/3/action/datastore_search?q=jones&resource_id=ba8d7049-ec05-4291-9333-57ca49ce7697 
 
 # opendata nhs cancer incidence, complete CSV
+library(tidyverse)
 incdence_by_RCN <- read_csv("https://www.opendata.nhs.scot/dataset/c2c59eb1-3aff-48d2-9e9c-60ca8605431d/resource/8cba0250-7e78-496d-8559-98c9c9a3d3e3/download/opendata_inc9822_region.csv")
+colorectal_inc <- incdence_by_RCN |> 
+  filter(str_detect(CancerSite, regex("colorec", ignore_case = TRUE)))
+
