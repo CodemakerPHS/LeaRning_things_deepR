@@ -42,4 +42,6 @@ https://www.opendata.nhs.scot/api/3/action/datastore_search_sql?sql=SELECT * fro
 # opendata cancer mortality API
 # results containing 'jones'
 https://www.opendata.nhs.scot/api/3/action/datastore_search?q=jones&resource_id=ba8d7049-ec05-4291-9333-57ca49ce7697 
-S
+
+# opendata nhs cancer incidence, complete CSV
+incdence_by_RCN <- read_csv("https://www.opendata.nhs.scot/dataset/c2c59eb1-3aff-48d2-9e9c-60ca8605431d/resource/8cba0250-7e78-496d-8559-98c9c9a3d3e3/download/opendata_inc9822_region.csv")
