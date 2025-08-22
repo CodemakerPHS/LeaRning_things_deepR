@@ -1,3 +1,7 @@
+# Edit in positron, for quick saves. 
+# Do not edit in RStudio. 
+
+
 # scratch_pm.R
 # for coding doodles
 
