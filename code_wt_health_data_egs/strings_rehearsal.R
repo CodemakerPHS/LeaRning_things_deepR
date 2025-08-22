@@ -1,5 +1,5 @@
 # String manipulation and regex
-
+# Using my own example strings, some parsing examples with escape characters and using str_match and parentheses to extract the string between two matches. Plus some notes on lookarounds.
 library("stringr")
 
 # Good example strings
