@@ -1,26 +1,55 @@
 # KIND R Meetup on Regex 
 # Brendan Clarke 24 April 2024 with Andrew Saul 
 
-# Top tip: use https://regex101.com/ 
-# ... to build and test regexs 
-# nice training wheels 
+
 
 library(pacman)
 library(tidyverse)
 
+
+# Resources # ----
+## Regex 101 ##
+# Top tip: use https://regex101.com/ 
+# ... to build and test regexs 
+# nice training wheels 
+
+# Brendan using PCRE2 / PHP>7.3 flavour ROUGHLY CLOSEST TO R
+
+# TO BRING TO R, YOU HAVE TO DOUBLE UP THE SLASHES \\ // 
+# SOMETHING TO DO WITH THE COMPILER
+
+## Cheat sheet Dave Child ##
+# https://cheatography.com/davechild/cheat-sheets/regular-expressions/
+
+# Testing things # ----
 # Another tip: try your expression on a vector before putting it in mutate()  
 # to apply it to a tibble
 
-# Brendan using PCRE2 / PHP>7.3 flavour ROUGHLY CLOSEST TO R
-# TO BRING TO R, YOU HAVE TO DOUBLE UP THE SLASHES \\ // 
-# SOMETHING TO DO WITH THE COMPILER
-# ? is 0 or 1; * is 0 or more; + is 1 or more . is any character; {number of instances}
-# \d digit; \D non-digit
-# https://cheatography.com/davechild/cheat-sheets/regular-expressions/
 
-# word boundary = whitespace or line break \b
-# $ anchor to the end of something, useful in matching names 
+# ANCHORS # ----
 # ^ start of line 
+# $ anchor to the end of something, useful in matching names 
+
+# Wildcards aka Match Characters ----
+# What I like to call 'Wildcards' (Posit call these Match Characters yuck)
+
+# . is ANY AND EVERY CHARACTER except a new line; 
+
+# \d digit; 
+# \D non-digit
+# \w word character
+# \W non-word characters
+# \b word boundary = whitespace or line break \b
+
+# Quantifiers # ----
+# ? is 0 or 1; 
+# * is 0 or more; 
+# + is 1 or more; 
+# {n} where n is the number of instances
+
+
+
+
 
 
 my_string <- "QPI 6(ii) TURBT trans urethral resection of a bladder tumour"
@@ -48,6 +77,7 @@ str_extract_all(my_stringy_vector, "t")
 
 # PHS used to have a postcode for people who didn't have a postcode: NK01 0AA 
 # There was another one NF1 1AB . I remember years ago working on a project that involved both. 
+# PW - Sounds like abbrev for Not Known and Not Found, respectively. 
 # Still used by other boards, see these every day in SAS incidents we get sent
 
 # eg postcode 

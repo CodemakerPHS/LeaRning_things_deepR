@@ -24,7 +24,7 @@ stranded_data |>
   select("age") |>
   head(7)
 
-# suppoly quoted col name and get back a 1-col tibble
+# supply quoted col name and get back a 1-col tibble
 # Base R??
 masc_fun <- function(the_df, the_col_name){
   the_result <- the_df[the_col_name]

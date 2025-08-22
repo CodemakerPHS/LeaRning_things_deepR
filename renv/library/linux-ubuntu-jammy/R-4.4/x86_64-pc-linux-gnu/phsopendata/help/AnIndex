@@ -1,0 +1,8 @@
+%>%	pipe
+get_dataset	get_dataset
+get_dataset_additional_info	get_dataset_additional_info
+get_latest_resource	get_latest_resource
+get_resource	get_resource
+get_resource_sql	get_resource_sql
+list_datasets	list_datasets
+list_resources	list_resources

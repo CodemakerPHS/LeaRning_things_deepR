@@ -1,4 +1,4 @@
-# tabula Rrrasa
+# tabula Rasa blank slate
 # playing with R 
 
 # create with empty strings

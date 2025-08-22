@@ -1,0 +1,40 @@
+Package: phslookups
+Title: PHS Lookups
+Version: 0.1.0
+Authors@R: c(
+    person("James", "McMahon", , "james.mcmahon@phs.scot", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-5380-2029")),
+    person("Nicolaos", "Christofidis", , "nicolaos.christofidis@phs.scot", role = "aut"),
+    person("Beata", "Nowok", , "beata.nowok@phs.scot", role = "aut"),
+    person("Public Health Scotland", role = "cph")
+  )
+Description: Helper functions for reading the PHS standard lookups.
+License: MIT + file LICENSE
+URL: https://github.com/Public-Health-Scotland/phslookups,
+        https://Public-Health-Scotland.github.io/phslookups/
+BugReports: https://github.com/Public-Health-Scotland/phslookups/issues
+Depends: R (>= 4.0)
+Imports: arrow, cli, dplyr, fs, readr, rlang, stringr, tibble
+Suggests: testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: phslookups
+RemoteUsername: Public-Health-Scotland
+RemoteRef: HEAD
+RemoteSha: 7dc0e0631f3456a34b5f7d069d9209956e5e8864
+GithubRepo: phslookups
+GithubUsername: Public-Health-Scotland
+GithubRef: HEAD
+GithubSHA1: 7dc0e0631f3456a34b5f7d069d9209956e5e8864
+NeedsCompilation: no
+Packaged: 2025-08-01 16:17:11 UTC; pauliw07
+Author: James McMahon [aut, cre] (<https://orcid.org/0000-0002-5380-2029>),
+  Nicolaos Christofidis [aut],
+  Beata Nowok [aut],
+  Public Health Scotland [cph]
+Maintainer: James McMahon <james.mcmahon@phs.scot>
+Built: R 4.4.2; ; 2025-08-01 16:17:13 UTC; unix

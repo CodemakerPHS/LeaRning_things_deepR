@@ -1,0 +1,45 @@
+Package: phsopendata
+Title: Extract Open Data from opendata.nhs.scot
+Version: 0.4.0
+Authors@R: c(
+    person("Public Health Scotland", , , "phs.datascience@phs.scot", role = "cph"),
+    person("Csilla", "Scharle", , "csilla.scharle2@phs.scot", role = c("aut", "cre")),
+    person("James", "McMahon", , "james.mcmahon@phs.scot", role = "aut"),
+    person("David", "Aikman", , "david.aikman@phs.scot", role = "aut"),
+    person("Ross", "Hull", , "ross.hull2@phs.scot", role = "aut")
+  )
+Description: Functions to extract and interact with data from the Scottish
+    Health and Social Care Open Data platform.
+License: GPL (>= 2)
+URL: https://github.com/Public-Health-Scotland/phsopendata,
+        https://public-health-scotland.github.io/phsopendata/
+BugReports: https://github.com/Public-Health-Scotland/phsopendata/issues
+Imports: cli (>= 3.2.0), dplyr (>= 1.0.0), httr (>= 1.0.0), magrittr
+        (>= 1.0.0), purrr (>= 1.0.0), rlang (>= 1.0.0), stringdist,
+        tibble (>= 3.0.0)
+Suggests: covr, jsonlite (>= 1.1), readr (>= 1.0.0), testthat (>=
+        3.0.0), xml2
+Config/testthat/edition: 3
+Config/testthat/parallel: true
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: phsopendata
+RemoteUsername: Public-Health-Scotland
+RemoteRef: HEAD
+RemoteSha: 65658bd920e731eddf6fddda9ca21fd0853d29e7
+GithubRepo: phsopendata
+GithubUsername: Public-Health-Scotland
+GithubRef: HEAD
+GithubSHA1: 65658bd920e731eddf6fddda9ca21fd0853d29e7
+NeedsCompilation: no
+Packaged: 2025-06-13 10:48:23 UTC; pauliw07
+Author: Public Health Scotland [cph],
+  Csilla Scharle [aut, cre],
+  James McMahon [aut],
+  David Aikman [aut],
+  Ross Hull [aut]
+Maintainer: Csilla Scharle <csilla.scharle2@phs.scot>
+Built: R 4.4.2; ; 2025-06-13 10:48:26 UTC; unix
