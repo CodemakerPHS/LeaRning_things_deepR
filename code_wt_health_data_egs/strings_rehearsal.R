@@ -44,7 +44,11 @@ grepl("P", qpi_name) # TRUE
 grepl("QPI", qpi_name) # TRUE
 grepl("X", qpi_name) # FALSE
 grepl("@", qpi_name) # FALSE
-grepl("8(iii): M", qpi_name) # FALSE
+grepl("2(iii)", qpi_name) # FALSE
+# The below produces a horrible error!
+grepl("2\(iii\): M", qpi_name) # unrecognizedEscape
+grepl("2\\(iii\\): M", qpi_name) # TRUE  :-) Properly escaped my brackets.
+
 #grepl("8\(", qpi_name) # error '\(' is an unrecognized escape
 grepl("8\\(", qpi_name) # TRUE
 
