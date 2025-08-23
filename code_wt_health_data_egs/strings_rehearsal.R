@@ -7,15 +7,27 @@ library("stringr")
 
 # Good example strings
 qpi_name <- "QPI 8(iii): Multi-disciplinary, special, good meeting"
+simple_qpi_name <- "QPI 12: Mindfulness available for 30 days"
 qpi_yr <- "2021/2022"
 target_label <- "<7.5%"
+simple_target_label <- "95%"
 wee_str_vec <- c("90%", "QPI 3(i)", 'measurability', "Regional networks: mapping")
+hosp_codes <- c("J103H", "J214H", "P101H", "J103H")
+hb_names <- c("Inverpo", "Strathseine and Lammermuir", "Greater Leithland")
+sites <- c("C67.1", "C67.5", "C67.8")
+site_names <- c("feather", "paw", "noggin")
 
-str_detect(qpi_name, "QPI 2")
-str_detect(qpi_name, "QPI 8")
+str_detect(qpi_name, "QPI 2") # FALSE
+str_detect(qpi_name, "QPI 8") # TRUE
+
 str_extract(target_label, "5.") # dot in a pattern will match any character
+str_extract(target_label, "7.") # dot in a pattern will match any character
 str_extract(target_label, "7\\.") # escaped dot to match just a dot
-#str_sub(qpi_name, "^QPI\.*\:")
+str_extract(target_label, "7.*") # dot matches any char, * quantifier any no. of times
+# "7.5%"
+str_extract(target_label, "7\\.*") # dot matches only dot, * quantifier any no. of times, it's only once
+# "7."
+str_sub(qpi_name,
 
 qpi_name <- "QPI 2(iii): Multi-disciplinary, special, good meeting"
 
