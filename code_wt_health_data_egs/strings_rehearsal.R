@@ -13,7 +13,7 @@ target_label <- "<7.5%"
 simple_target_label <- "95%"
 wee_str_vec <- c("90%", "QPI 3(i)", 'measurability', "Regional networks: mapping")
 hosp_codes <- c("J103H", "J214H", "P101H", "J103H")
-hb_names <- c("Inverpo", "Strathseine and Lammermuir", "Greater Leithland")
+hb_names <- c("Inverpo", "Strathseine and Lammermuir", "Greater Leithland & Wassie")
 sites <- c("C67.1", "C67.5", "C67.8")
 site_names <- c("feather", "paw", "noggin")
 
@@ -77,3 +77,9 @@ str_extract(raw_input, "(?<=r)a.*") # a preceded by r, and everything after the 
 str_extract(raw_input, "(?<!r)a.*") # a not preceded by r and then everything. 
 str_extract(raw_input, "a(?=m).*")  # a followed by m, and then everything after the m.  
 str_extract(raw_input, "a(?!m).*") # a not followed by m and then everything. 
+
+
+str_sub(hosp_codes, start = 1L, end = 1L) # first character, indicating geographical area
+str_sub(hosp_codes, start = 2L, end = 4L) # second to fourth chars, identifying hospital
+
+str_replace_all(hb_names, "&", "and")
