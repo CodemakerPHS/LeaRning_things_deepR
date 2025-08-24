@@ -30,7 +30,15 @@ https://www.opendata.nhs.scot/api/3/action/datastore_search?q=jones&resource_id=
 
 # opendata nhs cancer incidence, complete CSV
 library(tidyverse)
-incdence_by_RCN <- read_csv("https://www.opendata.nhs.scot/dataset/c2c59eb1-3aff-48d2-9e9c-60ca8605431d/resource/8cba0250-7e78-496d-8559-98c9c9a3d3e3/download/opendata_inc9822_region.csv")
+incidence_by_RCN <- read_csv("https://www.opendata.nhs.scot/dataset/c2c59eb1-3aff-48d2-9e9c-60ca8605431d/resource/8cba0250-7e78-496d-8559-98c9c9a3d3e3/download/opendata_inc9822_region.csv")
+incidence_by_RCN[["CancerSite"]] |> unique()
 colorectal_inc <- incdence_by_RCN |> 
   filter(str_detect(CancerSite, regex("colorec", ignore_case = TRUE)))
 
+# Quick list basic data exploration fresh tibble etc
+str()
+glimpse()
+summary()
+View()
+# Do plot the data obvs. 
+# Look for missing data / completeness. 

@@ -4,6 +4,9 @@
 # Plus some notes on lookarounds.
 
 library("stringr")
+library("readr")
+library("NHSRdatasets")
+library("tidyverse")
 
 # Good example strings initialisation ----
 qpi_name <- "QPI 8(iii): Multi-disciplinary, special, good meeting"
@@ -114,3 +117,16 @@ str_replace_all(hb_names, "&", "and")
 # To vectorise...?
 str_start(hosp_codes, "J|P")
 str_detect(hosp_codes, "^J|^P")
+
+# Lengths
+library(readr)
+
+incidence_by_RCN <- read_csv(
+    "https://www.opendata.nhs.scot/dataset/c2c59eb1-3aff-48d2-9e9c-60ca8605431d/resource/8cba0250-7e78-496d-8559-98c9c9a3d3e3/download/opendata_inc9822_region.csv"
+)
+bladder_inc <- incidence_by_RCN |>
+    filter(str_detect(CancerSite, regex("bladder", ignore_case = TRUE)))
+glimpse(bladder_inc)
+str_length(bladder_inc[["CancerSiteICD10Code"]])
+max(str_length(bladder_inc[["CancerSiteICD10Code"]]))
+summary(bladder_inc)
