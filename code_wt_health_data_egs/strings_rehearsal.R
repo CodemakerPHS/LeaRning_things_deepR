@@ -130,3 +130,5 @@ glimpse(bladder_inc)
 str_length(bladder_inc[["CancerSiteICD10Code"]])
 max(str_length(bladder_inc[["CancerSiteICD10Code"]]))
 summary(bladder_inc)
+# But is it any different from nchar()? No.
+max(nchar(bladder_inc[["CancerSiteICD10Code"]]))
