@@ -1,6 +1,4 @@
-# Edit in positron, for quick saves. 
-# Do not edit in RStudio. 
-
+# Edit in positron, for quick saves. # Do not edit in RStudio.
 
 # scratch_pm.R
 # for coding doodles
@@ -13,3 +11,6 @@ hb_name <- "Loch & Ness"
 a_hosp <- "G107H"
 not_rec_hosp <- "X9999"
 null_hb <- as.character(NULL)
+
+# Get qpi number
+str_sub()
