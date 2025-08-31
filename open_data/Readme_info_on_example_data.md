@@ -21,3 +21,17 @@ https://publichealthscotland.scot/media/30636/2024_12_10_testis_qpi_summary_tabl
 Cancer Incidence all three cancer network regions (CSV) 
 https://www.opendata.nhs.scot/dataset/c2c59eb1-3aff-48d2-9e9c-60ca8605431d/resource/8cba0250-7e78-496d-8559-98c9c9a3d3e3/download/opendata_inc9822_region.csv 
 
+Deprivation - SIMD 2020 v2 
+Multi-indicator measure of deprivation, relating to over 6,000 Data Zones. 
+https://www.opendata.nhs.scot/dataset/scottish-index-of-multiple-deprivation 
+simd2020v2_22062020.csv
+Query example (first 5 results)
+https://www.opendata.nhs.scot/api/3/action/datastore_search?resource_id=acade396-8430-4b34-895a-b3e757fa346e&limit=5
+
+Population estimates
+Not the most recent, just the most recent available on opendata.nhs. 
+See the NRS for more up-to-date estimates.
+https://www.opendata.nhs.scot/dataset/population-estimates 
+dz2011-pop-est_21112024.csv 
+Query example (first 5 results)
+https://www.opendata.nhs.scot/api/3/action/datastore_search?resource_id=c505f490-c201-44bd-abd1-1bd7a64285ee&limit=5
