@@ -112,11 +112,13 @@ str_replace_all(hb_names, "&", "and")
 ## Pitfalls ##
 # Don't bother with str_like(), it just allows you to use same wildcards etc as SQL LIKE.
 
-# Beware str_start(), won't work correctly with a pipe for alternate patterns.
+# Beware str_starts(), old versions didn't work correctly with a pipe for alternate patterns.
 # Better stick with the anchors ^ and $.
 # To vectorise...?
-str_start(hosp_codes, "J|P")
-str_detect(hosp_codes, "^J|^P")
+str_starts(hosp_codes, "J|H")
+str_detect(hosp_codes, "^J|^H")
+str_starts(hosp_codes, "P|H")
+str_detect(hosp_codes, "^P|^H")
 
 # Lengths
 library(readr)
