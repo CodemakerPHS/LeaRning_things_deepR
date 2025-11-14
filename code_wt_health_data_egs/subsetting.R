@@ -27,11 +27,24 @@ locations[-c(1,4)]
 
 ## ... but no mixing positive and negative. 
 locations[c(3,-4)] # Error
+locations[0] # zero-length chr vector
 
 ## Logical vectors
 QPI_names <- as.vector(testis_QPIs_2020_2023[["QPI"]])
-QPI_names[c(FALSE, FALSE, FALSE, TRUE)] # Why does this return two strings?!
+QPI_names[c(FALSE, FALSE, FALSE, TRUE)] # Why does this return two strings?! Answer below.
 
 bladder_crude_rate <- as.vector(bladder_inc[["CrudeRate"]])
+bladder_crude_rate[0] # zero-length numeric vector
+# The two lines below produce identical output, because it repeats ie recycling. 
+# Not recommended. 
 bladder_crude_rate[c(TRUE, FALSE, TRUE, FALSE, TRUE, FALSE)]
-bladder_crude_rate[c(TRUE, FALSE)] # identical output, because it repeats
+bladder_crude_rate[c(TRUE, FALSE)] 
+
+# Make a shorter vector for convenience
+bladder_crude <- bladder_crude_rate[1:10]
+bladder_crude
+bladder_crude > 14
+bladder_crude[bladder_crude > 14]
+
+# Setting names ie make a named vector
+(y <- setNames(x, letters[1:4]))
