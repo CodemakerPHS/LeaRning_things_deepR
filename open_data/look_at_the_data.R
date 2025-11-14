@@ -1,6 +1,7 @@
 # Just looking at datasets
 
-# datasets::esoph, 88 obs of 5 varbls
+# datasets::esoph, 88 obs of 5 varbls 
+# https://rdrr.io/r/datasets/esoph.html 
 oesophageal_baser_eg <- datasets::esoph
 
 # datasets::fdeaths
@@ -40,5 +41,6 @@ str()
 glimpse()
 summary()
 View()
+skim()
 # Do plot the data obvs. 
 # Look for missing data / completeness. 
