@@ -47,4 +47,11 @@ bladder_crude > 14
 bladder_crude[bladder_crude > 14]
 
 # Setting names ie make a named vector
-(y <- setNames(x, letters[1:4]))
+bladder_lookup <- setNames(bladder_crude[1:4], locations[1:4])
+bladder_lookup["WoSCAN"] # works a bit like a Perl hashtable
+one_network <- "WoSCAN"
+bladder_lookup[one_network] # replace the literal string with a variable
+# For some applications, the above is a less error-prone way of accessing data.
+# Because it is unaffected, if the order of the elements in the vector changes.
+
+
