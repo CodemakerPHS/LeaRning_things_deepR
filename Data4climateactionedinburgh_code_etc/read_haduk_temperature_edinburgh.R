@@ -31,12 +31,30 @@ daily_combined <- tibble(
   )
 )
 
-# Try to save - this will fail with the list-column error
+# Fix: Convert list-column to regular columns before saving to CSV
+# CSV format cannot handle list-columns, so we need to transform the data
+#
+# Option 1: Calculate summary statistics (mean, min, max) for each day
+# This is the typical approach for climate data analysis
 if (nrow(daily_combined) > 0) {
-  write_csv(daily_combined, here("edinburgh_daily_temps_point.csv"))
+  # Transform list-column to summary statistics
+  daily_combined_flat <- daily_combined %>%
+    mutate(
+      temp_mean = map_dbl(temperature, mean, na.rm = TRUE),
+      temp_min = map_dbl(temperature, min, na.rm = TRUE),
+      temp_max = map_dbl(temperature, max, na.rm = TRUE)
+    ) %>%
+    select(-temperature)  # Remove the list-column
+  
+  write_csv(daily_combined_flat, here("edinburgh_daily_temps_point.csv"))
   message(
     "Saved edinburgh_daily_temps_point.csv with ",
-    nrow(daily_combined),
+    nrow(daily_combined_flat),
     " rows"
   )
 }
+
+# Option 2: If you need all individual measurements, use unnest instead:
+# daily_combined_unnested <- daily_combined %>%
+#   unnest(temperature)
+# write_csv(daily_combined_unnested, here("edinburgh_daily_temps_point_all_measurements.csv"))
