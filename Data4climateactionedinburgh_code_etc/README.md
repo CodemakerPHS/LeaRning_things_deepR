@@ -2,7 +2,14 @@
 
 ## read_haduk_temperature_edinburgh.R
 
-This script reads HadUK temperature data for Edinburgh and saves it to a CSV file.
+This script reads HadUK-Grid NetCDF temperature files and plots temperatures for the City of Edinburgh.
+
+### Requirements
+
+Install required packages:
+```r
+install.packages(c("ncdf4", "here", "tidyverse", "lubridate"))
+```
 
 ### Bug Fix Applied
 
@@ -13,27 +20,38 @@ Error in `cli_block()`:
 ✖ invalid columns at index(s): 1
 ```
 
-**Cause:** The `daily_combined` dataframe contained a list-column (`temperature`), which cannot be written directly to CSV format using `write_csv()`.
+**Cause:** In some cases, when `bind_rows()` combines results from multiple NetCDF file extractions, certain columns may inadvertently become list-columns, which cannot be written directly to CSV format using `write_csv()`.
 
-**Solution:** Transform the list-column into regular atomic columns before saving. The script now:
+**Solution:** Before writing to CSV, the script now checks for and converts any list-columns to character format using:
 
-1. Uses `map_dbl()` to calculate summary statistics from the list-column:
-   - `temp_mean`: Mean temperature for each day
-   - `temp_min`: Minimum temperature for each day
-   - `temp_max`: Maximum temperature for each day
+```r
+daily_combined <- daily_combined %>%
+  mutate(across(where(is.list), as.character))
+```
 
-2. Removes the original list-column using `select(-temperature)`
+This ensures all columns are atomic (not list-columns) before saving, preventing the write_csv error.
 
-3. Writes the flattened dataframe to CSV
+### Configuration
 
-### Alternative Approach
+The script is configured for Edinburgh city centre by default:
+- Latitude: 55.9533°N
+- Longitude: -3.1883°E (west)
 
-If you need to preserve all individual measurements rather than summary statistics, uncomment the "Option 2" code at the end of the script, which uses `unnest()` to expand the list-column into multiple rows.
+Data files should be placed in `data/temperature/` directory with patterns:
+- Daily max: `tasmax_hadukgrid_uk_1km_day*.nc`
+- Daily min: `tasmin_hadukgrid_uk_1km_day*.nc`
+- Monthly mean: `tas_hadukgrid_uk_1km_mon*.nc`
+
+### Output
+
+The script generates:
+- `edinburgh_daily_temps_point.csv` - Daily temperature data (max and min)
+- `edinburgh_monthly_mean_temps_point.csv` - Monthly mean temperatures
+- `edinburgh_monthly_from_daily.csv` - Monthly averages computed from daily data
+- Temperature plots (printed to screen or save with `ggsave()`)
 
 ### Usage
 
 ```r
-source("read_haduk_temperature_edinburgh.R")
+source("Data4climateactionedinburgh_code_etc/read_haduk_temperature_edinburgh.R")
 ```
-
-The script will create `edinburgh_daily_temps_point.csv` in the project root directory.
