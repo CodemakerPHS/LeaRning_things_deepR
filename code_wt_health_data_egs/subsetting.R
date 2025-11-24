@@ -9,7 +9,7 @@
 source("code_wt_health_data_egs/data_structures.R")
 
 # Simple vector
-
+# Regional cancer networks in alphabetical order, plus Scotland
 locations <- c("NCA", "SCAN", "WoSCAN", "Scotland")
 
 # You can use six things to subset a vector
@@ -55,3 +55,15 @@ bladder_lookup[one_network] # replace the literal string with a variable
 # Because it is unaffected, if the order of the elements in the vector changes.
 
 
+# 4.5.1 Lookup tables ##### 
+
+network_lookup <- c(NCA = "North Cancer Alliance", 
+                    SCAN = "South East Scotland Cancer Network", 
+                    WoSCAN = "West of Scotland Cancer Network", 
+                    S = "Scotland")
+network_lookup["SCAN"]
+
+one_network <- "WoSCAN" # Get the case correct, otherwise it breaks!
+network_lookup[one_network]
+
+hosp_lookup <- read_csv("table_of_hosp_codes.csv")
