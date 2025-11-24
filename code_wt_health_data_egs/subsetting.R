@@ -56,6 +56,7 @@ bladder_lookup[one_network] # replace the literal string with a variable
 
 
 # 4.5.1 Lookup tables ##### 
+# Use a named vector to assign names to values, and use to retrieve data
 
 network_lookup <- c(NCA = "North Cancer Alliance", 
                     SCAN = "South East Scotland Cancer Network", 
@@ -66,4 +67,5 @@ network_lookup["SCAN"]
 one_network <- "WoSCAN" # Get the case correct, otherwise it breaks!
 network_lookup[one_network]
 
-hosp_lookup <- read_csv("table_of_hosp_codes.csv")
+# Lookup file with hospitals, codes and health boards, not kept up-to-date
+glimpse(hosp_lookup) #  "hosp_codes_and_HBs.csv"
