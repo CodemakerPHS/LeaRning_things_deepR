@@ -68,4 +68,16 @@ one_network <- "WoSCAN" # Get the case correct, otherwise it breaks!
 network_lookup[one_network]
 
 # Lookup file with hospitals, codes and health boards, not kept up-to-date
-glimpse(hosp_lookup) #  "hosp_codes_and_HBs.csv"
+# Build a lookup not a tibble for direct access, to avoid pipe and filter
+hosp_codes_lookup_vec <- hosp_lookup[["Hospital_code"]] 
+hosp_codes_lookup_vec <- setNames(hosp_codes_lookup_vec, hosp_lookup[["hospital_official_name"]])
+
+
+one_hosp <- "D102H"
+hosp_codes_lookup_vec[one_hosp]
+
+hosp2 <- "L302H"
+hosp_codes_lookup_vec[hosp2]
+
+hosp3 <- "X1010"
+hosp_codes_lookup_vec[hosp3]
