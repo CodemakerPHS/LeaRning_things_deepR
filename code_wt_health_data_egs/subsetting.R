@@ -72,12 +72,24 @@ network_lookup[one_network]
 hosp_codes_lookup_vec <- hosp_lookup[["Hospital_code"]] 
 hosp_codes_lookup_vec <- setNames(hosp_codes_lookup_vec, hosp_lookup[["hospital_official_name"]])
 
-
+# BELOW DOES NOT WORK, horrible!
 one_hosp <- "D102H"
 hosp_codes_lookup_vec[one_hosp]
 
+# BELOW DOES NOT WORK, horrible!
 hosp2 <- "L302H"
 hosp_codes_lookup_vec[hosp2]
 
+# DO NOT EXPECT THE BELOW TO WORK
 hosp3 <- "X1010"
-hosp_codes_lookup_vec[hosp3]
+hosp_codes_lookup_vec[hosp3] 
+
+# NOT MUCH USE TO ME!
+a_few_hosps <- c(one_hosp, hosp2, hosp3)
+hosp_codes_lookup_vec[[a_few_hosps]]
+
+# Book example in 4.5.1
+x <- c("D102H", "L302H", "X1010", "L302H", "L302H") 
+lookup <- c(D102H = "Golden Jubilee", L302H = "Hairmyres, Lanarkshire", X1010 = "Not applicable")
+lookup[x]
+unname(lookup[x])
