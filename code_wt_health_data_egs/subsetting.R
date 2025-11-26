@@ -69,8 +69,8 @@ network_lookup[one_network]
 
 # Lookup file with hospitals, codes and health boards, not kept up-to-date
 # Build a lookup not a tibble for direct access, to avoid pipe and filter
-hosp_codes_lookup_vec <- hosp_lookup[["Hospital_code"]] 
-hosp_codes_lookup_vec <- setNames(hosp_codes_lookup_vec, hosp_lookup[["hospital_official_name"]])
+hosp_codes_lookup_vec <- hosp_lookup[["hospital_official_name"]] 
+hosp_codes_lookup_vec <- setNames(hosp_codes_lookup_vec, hosp_lookup[["Hospital_code"]])
 
 # BELOW DOES NOT WORK, horrible!
 one_hosp <- "D102H"
