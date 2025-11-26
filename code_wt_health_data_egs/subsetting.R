@@ -88,13 +88,18 @@ unname(hosp_codes_lookup_vec[hosp2])
 # DO NOT EXPECT THE BELOW TO WORK
 hosp3 <- "X1010"
 hosp_codes_lookup_vec[hosp3] 
+# My list did not define missing values.
+# X1010 "Not applicable"
 
-# NOT MUCH USE TO ME!
+# Pass in a vector of codes, get back a vector of the results, with short codes.
 a_few_hosps <- c(one_hosp, hosp2, hosp3)
-hosp_codes_lookup_vec[[a_few_hosps]]
+hosp_codes_lookup_vec[a_few_hosps]
 
 # Book example in 4.5.1
-x <- c("D102H", "L302H", "X1010", "L302H", "L302H") 
-lookup <- c(D102H = "Golden Jubilee", L302H = "Hairmyres, Lanarkshire", X1010 = "Not applicable")
+x <- c("D102H", "X9999", "L302H", "X1010", "L302H", "L302H") 
+lookup <- c(D102H = "Golden Jubilee", 
+            L302H = "Hairmyres, Lanarkshire", 
+            X1010 = "Not applicable", 
+            X9999 = "Not recorded")
 lookup[x]
 unname(lookup[x])
