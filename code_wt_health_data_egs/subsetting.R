@@ -69,16 +69,21 @@ network_lookup[one_network]
 
 # Lookup file with hospitals, codes and health boards, not kept up-to-date
 # Build a lookup not a tibble for direct access, to avoid pipe and filter
+# Store hospital long names in a vector
 hosp_codes_lookup_vec <- hosp_lookup[["hospital_official_name"]] 
+# Use setNames() to set the corresponding five-character codes as 'keys' 
+# ie key-value pairs
 hosp_codes_lookup_vec <- setNames(hosp_codes_lookup_vec, hosp_lookup[["Hospital_code"]])
 
-# BELOW DOES NOT WORK, horrible!
+# Feed the variable containing a short hospital code into the lookup, 
+# and it returns the full hospital name
 one_hosp <- "D102H"
 hosp_codes_lookup_vec[one_hosp]
 
-# BELOW DOES NOT WORK, horrible!
+# Different example
 hosp2 <- "L302H"
-hosp_codes_lookup_vec[hosp2]
+# Use unname() to return just the answer, not the key-value pair
+unname(hosp_codes_lookup_vec[hosp2])
 
 # DO NOT EXPECT THE BELOW TO WORK
 hosp3 <- "X1010"
