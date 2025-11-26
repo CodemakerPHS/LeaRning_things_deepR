@@ -31,3 +31,10 @@ incidence_by_RCN <- read_csv("https://www.opendata.nhs.scot/dataset/c2c59eb1-3af
 bladder_inc <- incidence_by_RCN |>
   filter(str_detect(CancerSite, regex("bladder", ignore_case = TRUE)))
 
+# My wee reference file with table of hospitals, codes and health boards, not kept up-to-date
+# Latest official equivalent version at: 
+# https://www.opendata.nhs.scot/dataset/hospital-codes 
+hosp_lookup <- read_csv(here(data_dir_path, "hosp_codes_and_HBs.csv")) 
+
+
+         
