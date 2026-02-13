@@ -38,3 +38,10 @@ attr(f02, "srcref")
 library(janitor)
 attr(round_half_up, "srcref") 
 # Oops - NULL - which tells us this function might be implemented in C. 
+
+# Really don't like the exercises at the end of section 6.2 - some of them 
+# seem deliberately baffling, as if to drive us to buy the answer book. 
+
+# 6.3 Function composition
+
+# 6.6 dot dot dot should be useful and interesting?!
