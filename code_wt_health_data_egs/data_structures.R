@@ -5,10 +5,11 @@
 #
 # Before going further,
 # using positron handy auth integrn for github so far so good.
-# Else if (using posit cloud){
-#  might need to wrangle github personal access token apparently
-# https://docs.posit.co/cloud/guide/advanced/index.html#working-with-github
+# ... Else if (using posit cloud){
+###  might need to wrangle github personal access token apparently
+### https://docs.posit.co/cloud/guide/advanced/index.html#working-with-github
 # }
+#
 # ###########
 
 library(here)
@@ -34,6 +35,7 @@ bladder_inc <- incidence_by_RCN |>
 # My wee reference file with table of hospitals, codes and health boards, not kept up-to-date
 # Latest official equivalent version at: 
 # https://www.opendata.nhs.scot/dataset/hospital-codes 
+# ... but does not have the full hospital names etc, you have to look them up!
 hosp_lookup <- read_csv(here(data_dir_path, "hosp_codes_and_HBs.csv")) 
 
 
