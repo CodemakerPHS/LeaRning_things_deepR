@@ -5,10 +5,11 @@
 #
 # Before going further,
 # using positron handy auth integrn for github so far so good.
-# Else if (using posit cloud){
-#  might need to wrangle github personal access token apparently
-# https://docs.posit.co/cloud/guide/advanced/index.html#working-with-github
+# ... Else if (using posit cloud){
+###  might need to wrangle github personal access token apparently
+### https://docs.posit.co/cloud/guide/advanced/index.html#working-with-github
 # }
+#
 # ###########
 
 library(here)
