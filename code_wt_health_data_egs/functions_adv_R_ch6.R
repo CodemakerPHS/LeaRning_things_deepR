@@ -33,7 +33,7 @@ attr(f02, "srcref")
 #> NULL
 
 # Not going to use a dplyr example because there's a new version 
-# with handy new functions. 
+# with handy new functions, as described by Tom in the recent Code Club. 
 
 library(janitor)
 attr(round_half_up, "srcref") 
@@ -42,6 +42,26 @@ attr(round_half_up, "srcref")
 # Really don't like the exercises at the end of section 6.2 - some of them 
 # seem deliberately baffling, as if to drive us to buy the answer book. 
 
-# 6.3 Function composition
+# 6.3 Function composition 
+
+# 6.4 Scope 
+# CS Computing Science term - lexical - ie parse-time structure (not run-time). 
+# 6.4.1 Name masking 
+x <- "thyroid" 
+y <- "brain" 
+scope_fun_g02 <- function(){
+ x <- "Lothian" 
+ y <- "Lanarkshire" 
+ return(c(x, y)) 
+}
+scope_fun_g02() 
+
+scope_fun_g03 <- function(){
+ y <- "Western Isles"
+ return(c(x, y)) 
+}
+
+scope_fun_g03()
+
 
 # 6.6 dot dot dot should be useful and interesting?!
