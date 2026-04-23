@@ -1,6 +1,6 @@
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # 
-# Subsetting 
+# Functions 
 # Adapted from chapter 6 of Advanced R https://adv-r.hadley.nz/functions.html 
 # For the CASES R Book Club April 2026
 #
@@ -64,4 +64,17 @@ scope_fun_g03 <- function(){
 scope_fun_g03()
 
 
-# 6.6 dot dot dot should be useful and interesting?!
+# 6.6 dot dot dot should be useful and interesting?! 
+dots_fun_i01 <-  function(y, z) {
+  list(y=y, z=z)
+}
+
+dots_fun_i02 <-  function(x, ...) {
+  dots_fun_i01(...) 
+} 
+
+str(dots_fun_i02(x=1, y=2, z=3))
+# List of 2
+# $ y: num 2
+# $ z: num 3 
+
