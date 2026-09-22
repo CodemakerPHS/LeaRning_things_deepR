@@ -11,7 +11,8 @@ is.vector(hosps_vec) # TRUE
 
 ## any and all
 
-# Where any names contain ampersand '&', replace with 'and'
+# Confirm whether any names contain ampersand '&'
 str_detect(hosps_vec, "&") # vector of logicals
 any(str_detect(hosps_vec, "&")) # one logical
+# Confirm whether all names contain ampersand
 all(str_detect(hosps_vec, "&")) # one logical
