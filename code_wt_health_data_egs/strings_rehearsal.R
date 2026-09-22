@@ -10,7 +10,7 @@ library("tidyverse")
 
 # Good example strings initialisation ----
 qpi_name <- "QPI 8(iii): Multi-disciplinary, special, good meeting"
-simple_qpi_name <- "QPI 12: Mindfulness available for 30 days" 
+simple_qpi_name <- "QPI 12: Mindfulness available for 30 days"
 # Messy QPIs titles with unwanted spaces and carriage returns
 qpi3 <- " QPI 3: Coffee access"
 qpi4i <- "QPI 4(i): Plan created... "
@@ -118,11 +118,13 @@ str_replace_all(hb_names, "&", "and")
 ## Pitfalls ##
 # Don't bother with str_like(), it just allows you to use same wildcards etc as SQL LIKE.
 
-# Beware str_start(), won't work correctly with a pipe for alternate patterns.
+# Beware str_starts(), old versions didn't work correctly with a pipe for alternate patterns.
 # Better stick with the anchors ^ and $.
 # To vectorise...?
-str_start(hosp_codes, "J|P")
-str_detect(hosp_codes, "^J|^P")
+str_starts(hosp_codes, "J|H")
+str_detect(hosp_codes, "^J|^H")
+str_starts(hosp_codes, "P|H")
+str_detect(hosp_codes, "^P|^H")
 
 # Lengths
 library(readr)
@@ -137,13 +139,19 @@ str_length(bladder_inc[["CancerSiteICD10Code"]])
 max(str_length(bladder_inc[["CancerSiteICD10Code"]]))
 summary(bladder_inc)
 # But is it any different from nchar()? No.
-max(nchar(bladder_inc[["CancerSiteICD10Code"]])) 
 
-# Tidy up strings. 
-# Remove first blank space 
-str_remove(qpi_short_names, "[:space:]") 
+max(nchar(bladder_inc[["CancerSiteICD10Code"]]))
+
+# Possibly put some more escaping examples here
+#
+# no_escape <- ""
+# great_escape
+
+# Tidy up strings.
+# Remove first blank space
+str_remove(qpi_short_names, "[:space:]")
 # Remove all blank spaces and special characters inc \n carriage returns
 str_remove_all(qpi_short_names, "[[:space:][:punct:]]")
 # Globbing the trailing characters
 # Reminder '+' signifies one or more and '$' is the end-of-the-string anchor
-str_remove(qpi_short_names, "[[:space:][:punct:]]+$") 
+str_remove(qpi_short_names, "[[:space:][:punct:]]+$")
