@@ -23,8 +23,11 @@ mtcars
 
 mtcars$mpg
 mtcars[1]
+
 # error
 mtcars[mpg]
+
+# ok
 mtcars["mpg"]
 
 mtcars[["mpg"]]

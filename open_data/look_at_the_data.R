@@ -1,6 +1,7 @@
 # Just looking at datasets
 
-# datasets::esoph, 88 obs of 5 varbls
+# datasets::esoph, 88 obs of 5 varbls 
+# https://rdrr.io/r/datasets/esoph.html 
 oesophageal_baser_eg <- datasets::esoph
 
 # datasets::fdeaths
@@ -23,6 +24,8 @@ library(NHSRdatasets)
 
 # opendata.nhs.scot cancer incidence API query by SQL statement
 https://www.opendata.nhs.scot/api/3/action/datastore_search_sql?sql=SELECT * from "72c852b8-ee28-4fd8-84a9-5f415f4bc325" WHERE title LIKE 'jones' 
+# .. or # phsopendata::get_resource()
+
 
 # opendata cancer mortality API
 # results containing 'jones'
@@ -40,5 +43,6 @@ str()
 glimpse()
 summary()
 View()
+skim()
 # Do plot the data obvs. 
 # Look for missing data / completeness. 

@@ -1,0 +1,54 @@
+﻿Network,Location_short_name,Hospital_code,hospital_official_name,health_board_code,health_board_name,comment
+NCA,Aberdeen RI,N101H,Aberdeen Royal Infirmary,S08000020,NHS Grampian,
+NCA,Albyn,NA,"Albyn Hospital (Aberdeen, Circle Health)",NA,NA,
+NCA,Balfour Hosp,R103H,The Balfour,S08000025,NHS Orkney,Kirkwall
+NCA,Belford Hosp,H212H,Belford Hospital,S08000022,NHS Highland,Fort William
+NCA,Caithness General,H103H,Caithness General Hospital,S08000022,NHS Highland,
+NCA,Dr Grays Hosp,N411H,Dr Gray's Hospital,S08000020,NHS Grampian,Elgin
+NCA,Dundee Dental,T113H,Dundee Dental Hospital,S08000030,NHS Tayside,
+NCA,Gilbert Bain Hosp,Z102H,Gilbert Bain Hospital,S08000026,NHS Shetland,Lerwick
+NCA,Lorn Islands Hosp,C121H,Lorn & Islands Hospital,S08000022,NHS Highland,Oban
+NCA,Ninewells Hosp,T101H,Ninewells Hospital,S08000030,NHS Tayside,
+NCA,Perth Royal Inf,T202H,Perth Royal Infirmary,S08000030,NHS Tayside,
+NCA,Raigmore Hosp,H202H,Raigmore Hospital,S08000022,NHS Highland,Inverness
+NCA,Stracathro Hosp,T312H,Stracathro Hospital,S08000030,NHS Tayside,
+NCA,Western Isles Hosp,W107H,Western Isles Hospital,S08000028,NHS Western Isles,Stornoway
+NCA,Woodend Hosp,N102H,,,,
+SCAN,Borders General Hosp,B120H,Borders General Hospital,S08000016,NHS Borders,Melrose
+SCAN,Dumfries & Galloway RI,Y146H,Dumfries & Galloway Royal Infirmary,S08000017,NHS Dumfries and Galloway,"Cargenbridge, Dumfries"
+SCAN,Murrayfield Hosp,NA,Spire Murrayfield Hospital (Edinburgh),NA,NA,
+SCAN,QMH Fife,F805H,Queen Margaret Hospital,S08000029,NHS Fife,Dunfermline
+SCAN,Royal Inf Edinburgh,S314H,Royal Infirmary of Edinburgh at Little France,S08000024,NHS Lothian,
+SCAN,St Johns Hosp,S308H,St John's Hospital,S08000024,NHS Lothian,
+SCAN,Victoria Hosp Fife,F704H,Victoria Hospital,S08000029,NHS Fife,
+SCAN,Western General Hosp,S116H,Western General Hospital,S08000024,NHS Lothian,Edinburgh
+WoSCAN,Ayr,A210H,University Hospital Ayr,S08000015,NHS Ayrshire and Arran,
+WoSCAN,Crosshouse,A111H,University Hospital Crosshouse,S08000015,NHS Ayrshire and Arran,
+WoSCAN,Forth Valley Royal,V217H,Forth Valley Royal Hospital,S08000019,NHS Forth Valley,
+WoSCAN,Gartnavel,G504H,Gartnavel General Hospital (Admin Purposes),S08000031,NHS Greater Glasgow and Clyde,
+WoSCAN,Gartnavel/Western,NA,NA,NA,NA,
+WoSCAN,Glasgow Royal Inf,G107H,Glasgow Royal Infirmary,S08000031,NHS Greater Glasgow and Clyde,
+WoSCAN,Golden Jubilee,D102H,Golden Jubilee University National Hospital,S08000031,NHS Greater Glasgow and Clyde,
+WoSCAN,Hairmyres,L302H,University Hospital Hairmyres,S08000032,NHS Lanarkshire,
+WoSCAN,Inverclyde Royal,C313H,Inverclyde Royal Hospital,S08000031,NHS Greater Glasgow and Clyde,
+WoSCAN,Monklands,L106H,University Hospital Monklands ,S08000032,NHS Lanarkshire,
+WoSCAN,North East Glasgow,NA,NA,NA,NA,
+WoSCAN,North Glasgow,NA,NA,NA,NA,
+WoSCAN,Other Hospital,NA,NA,NA,NA,
+WoSCAN,Queen Elizabeth Hosp,G405H,Queen Elizabeth University Hospital,S08000031,NHS Greater Glasgow and Clyde,
+WoSCAN,Royal Alexandra,C418H,Royal Alexandra Hospital,S08000031,NHS Greater Glasgow and Clyde,
+WoSCAN,South Glasgow,NA,NA,NA,NA,
+WoSCAN,Southern General,NA,NA,NA,NA,
+WoSCAN,Stirling Community Hosp,V201H,,,,
+WoSCAN,Stobhill,G207H,Stobhill Hospital,S08000031,NHS Greater Glasgow and Clyde,
+WoSCAN,Vale of Leven,C206H,Vale of Leven General Hospital,S08000031,NHS Greater Glasgow and Clyde,
+WoSCAN,Victoria Glasgow,G306H,New Victoria Hospital,S08000031,NHS Greater Glasgow and Clyde,
+WoSCAN,West Glasgow,NA,NA,NA,NA,
+WoSCAN,Western Inf,NA,NA,NA,NA,
+WoSCAN,WGH Edin WoSCAN,NA,NA,NA,NA,
+WoSCAN,Wishaw,L308H,University Hospital Wishaw ,S08000032,NHS Lanarkshire,
+SCAN,Royal Hosp Sick Children Edinburgh,S225H,Royal Hospital for Children in Edinburgh,S08000024,NHS Lothian,
+WoSCAN,Beatson,G517H,Beatson West of Scotland Cancer Centre,S08000031,NHS Greater Glasgow and Clyde,"1053 Great Western Road, Glasgow"
+WoSCAN,Gartnavel (West Glasgow),G516H,West Glasgow,S08000031,NHS Greater Glasgow and Clyde,"1053 Great Western Road, Glasgow"
+SCAN,Royal Edinburgh Hosp,S217H,Royal Edinburgh Hospital,,Lothian,Corner of Tipperlinn Rd n Morningside Place
+WoSCAN,G001A [UNIDENTIFIED!],G001A,unknown,,,
