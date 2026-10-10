@@ -16,3 +16,10 @@ str_detect(hosps_vec, "&") # vector of logicals
 any(str_detect(hosps_vec, "&")) # one logical
 # Confirm whether all names contain ampersand
 all(str_detect(hosps_vec, "&")) # one logical
+
+# sapply() ie 'simplify apply', forerunner of purrr::map()
+# Apply a function to data
+shout <- function(hosp_name) {
+    hosp_name <- toupper(hosp_name)
+}
+sapply(hosps_vec, shout)
