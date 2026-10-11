@@ -21,5 +21,7 @@ all(str_detect(hosps_vec, "&")) # one logical
 # Apply a function to data
 shout <- function(hosp_name) {
     hosp_name <- toupper(hosp_name)
+    return(hosp_name)
 }
 sapply(hosps_vec, shout)
+# 😒
